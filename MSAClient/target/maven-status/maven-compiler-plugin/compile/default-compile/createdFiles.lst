@@ -1,0 +1,9 @@
+com\mycompany\msaclient\config\BootStrap.class
+servlet\MSAServlet.class
+com\mycompany\msaclient\service\HealthCheckService.class
+model\Emp.class
+com\mycompany\msaclient\service\ExampleService.class
+com\mycompany\msaclient\config\CrossOriginResourceSharingFilter.class
+com\mycompany\msaclient\config\Producers.class
+com\mycompany\msaclient\service\package-info.class
+client\EmpClient.class
