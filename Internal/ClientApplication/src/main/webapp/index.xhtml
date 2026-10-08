@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html">
+
+    <h:head>
+        <title>Movie Search</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 40px;
+            }
+
+            .container {
+                width: 700px;
+                margin: auto;
+            }
+
+            .title {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .form-row {
+                margin-bottom: 15px;
+            }
+
+            .label {
+                display: inline-block;
+                width: 100px;
+                font-weight: bold;
+            }
+
+            .input {
+                width: 250px;
+                padding: 6px;
+            }
+
+            .button {
+                padding: 8px 20px;
+                margin-left: 100px;
+                cursor: pointer;
+            }
+
+            table {
+                width: 100%;
+                margin-top: 30px;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: center;
+            }
+
+            th {
+                background-color: #eeeeee;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+
+        <div class="container">
+
+            <h2 class="title">Movie Search</h2>
+
+            <h:form>
+
+                <!-- Movie Name -->
+                <div class="form-row">
+                    <h:outputLabel
+                        value="Movie Name:"
+                        styleClass="label"/>
+
+                    <h:inputText
+                        value="#{movieClient.movie}"
+                        styleClass="input"/>
+                </div>
+
+                <!-- City -->
+                <div class="form-row">
+                    <h:outputLabel
+                        value="City:"
+                        styleClass="label"/>
+
+                    <h:inputText
+                        value="#{movieClient.city}"
+                        styleClass="input"/>
+                </div>
+
+                <!-- Search -->
+                <h:commandButton
+                    value="SEARCH"
+                    action="#{movieClient.search}"
+                    styleClass="button"/>
+
+                <!-- Results -->
+                <h:dataTable
+                    value="#{movieClient.movies}"
+                    var="m"
+                    rendered="#{not empty movieClient.movies}">
+
+                    <h:column>
+                        <h:outputText value="Movie ID"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="Movie Name"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="Movie Type"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="Language"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="Duration"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="Rating"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="#{m.movieid}"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="#{m.moviename}"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="#{m.movietype}"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="#{m.language}"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="#{m.duration}"/>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputText value="#{m.rating}"/>
+                    </h:column>
+
+                </h:dataTable>
+
+            </h:form>
+
+        </div>
+
+    </h:body>
+
+</html>
